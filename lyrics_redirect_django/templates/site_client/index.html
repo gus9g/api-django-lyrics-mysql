@@ -1,0 +1,17 @@
+{% extends 'defaults/structure_index.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block title %}
+    Lyrics Redirect - Django
+{% endblock %}
+
+{% block body_container %}
+    <div class="row">
+        {% include './band.html' %}
+    </div>
+{% endblock %}

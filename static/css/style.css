@@ -1,0 +1,194 @@
+.navbar-brand img {
+    width: 30px;
+    height: auto;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+div.row div a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.navbar {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.bg-light-one {
+    background: #ccc;
+}
+
+/* IMAGEM DO BACKGROUND */
+body {
+    background-image: url("../img/background/piano.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.container-covers div.wrapper {
+  display: inline-block;
+  margin-left: 45px;
+  padding-left: 3px;
+}
+
+
+/*---- COVER CONFIGURATION ---- */
+
+.content-field {
+    float: left;
+	width: 250px;
+	height: 330px;
+	margin: 10px;
+	padding: 0px 10px;
+	font-family: sans-serif;
+}
+
+.content-field .info {
+	text-align: center;
+}
+
+/* SCENE WRAPPER */
+.wrapper{
+	height: 250px;
+	position:relative;
+	perspective: 800;
+	perspective-origin: 50% 100px;
+}
+
+/* CUBE WRAPPER */
+.cube{
+	position: relative;
+	margin: 0;
+  left: auto;
+  right: 45px;
+	width: 200px;
+	transform-style: preserve-3d;
+}
+.cube:hover{
+	position: relative;
+	width: 200px;
+	transform-style: preserve-3d;
+	animation: spin 4s infinite linear;
+	transition: all 1s linear;
+}
+
+/* INNER CUBE */
+i{
+	position:absolute;
+	top:60px;
+	display:block;
+	transition: all 1s linear;
+}
+i.front{
+	transform: translateZ(10px);
+	left: 50px;
+	width:100px;
+	height:100px;
+}
+i.back{
+	transform: translateZ(0px) rotateY(180deg);
+	left:50px;
+	width:100px;
+	height:100px;
+}
+i.bottom{
+	transform:rotateX(-90deg) translateY(0px);
+	transform-origin: left bottom;
+	left:50px;
+	width:100px;
+	height:10px;
+}
+i.left{
+	transform:rotateY(270deg) translateX(0px);
+	transform-origin: center left;
+	left:50px;
+	width:10px;
+	height:100px;
+}
+i.right{
+	transform:rotateY(-270deg) translateX(0px);
+	transform-origin: top right;
+	left:190px;
+	width:10px;
+	height:100px;
+}
+i.top{
+	transform:rotateX(-270deg) translateY(0px);
+	transform-origin: left top;
+	left:50px;
+	width:100px;
+	height:10px;
+}
+
+/* SIZE OF COVER CD */
+i.left img, i.right img,
+i.left, i.right {
+	width: 10px;
+	height: 150px;
+}
+i.top img, i.bottom img,
+i.top, i.bottom {
+	width: 150px;
+	height: 10px;
+}
+i.front img, i.back img,
+i.front, i.back {
+	width: 150px;
+	height: 150px;
+}
+i.left img, i.left,
+i.top, i.bottom,
+i.right {
+	background-size: 10px;
+}
+i.front, i.back {
+	background-size: 100px;
+}
+
+/* HOVER TRANSFORMATIONS */
+.cube:hover{
+	top: 0px;
+}
+.cube:hover {
+  animation: coverRotate 5s linear infinite;
+  transform-origin: top center;
+}
+.cube:hover i{
+	top:50px;
+}
+
+/* POSITIONS BODY */
+.left-align {
+	margin-top: 80px;
+}
+.center-align {
+	margin-top: 40px;
+	margin-left: 250px;
+}
+
+/* KEYFRAMES FOR ROTATING ANIMATION */
+@keyframes coverRotate {
+	from { transform: rotateY(0) }
+	to   { transform: rotateY(360deg)  }
+}
+
+@keyframes zoomInfo {
+	0% { transform: scale(1) }
+	50%   { transform: scale(1.2)  }
+	100% { transform: scale(1) }
+}
+
+

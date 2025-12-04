@@ -1,0 +1,59 @@
+{% extends 'defaults/structure_index.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+{% endblock %}
+
+{% block title %}
+    Musicas
+{% endblock %}
+
+{% block body_container %}
+    <div class="row">
+        <div class="col text-center">
+            <h1>Listagem de Musicas</h1>
+            
+            <br />
+            <a href="/registers" class="btn btn-lg btn-danger">Voltar a Administração de Dados</a>
+            <br />
+            <br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-secondary">
+                        <form action="song/add" method="POST">
+                            {% csrf_token %}
+                            <td hidden><input type="number" name="id" id="id" hidden /></td>
+                            <td><input type="text" name="nome" id="nome" placeholder="Nome" /></td>
+                            <td colspan="2"><input type="submit" value="Adicionar" class="btn btn-success btn-md"/></td>
+                        </form>
+                    </tr>
+                    {% for lst_song in song %}
+                        <tr>
+                            <td>{{lst_song.nome}}</td>
+                            <form action="song/alter" method="POST">
+                                {% csrf_token %}
+                                <td hidden><input type="number" name="id" id="id" value="{{lst_song.id}}" hidden /></td>
+                                <td><input type="submit" value="Alterar" class="btn btn-md btn-warning" /></td>
+                            </form>
+                            <form action="song/remove" method="POST">
+                                {% csrf_token %}
+                                <td hidden><input type="number" name="id" id="id" value="{{lst_song.id}}" hidden /></td>
+                                <td><input type="submit" value="Remover" class="btn btn-md btn-danger" /></td>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

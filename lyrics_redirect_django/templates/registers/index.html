@@ -1,0 +1,30 @@
+{% extends 'defaults/structure_index.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+{% endblock %}
+
+
+{% block title %}
+    Área do Administrador
+{% endblock %}
+
+
+{% block body_container %}
+    <div class="row">
+        <div class="col text-center">
+            <h1>Administração de Dados</h1>
+            <br>
+            <a class="btn btn-primary btn-lg" href="genre">Genero Musical</a>
+            <a class="btn btn-primary btn-lg" href="band">Banda</a>
+            <a class="btn btn-primary btn-lg" href="cover_album">Album</a>
+            <a class="btn btn-primary btn-lg" href="song">Musica</a>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

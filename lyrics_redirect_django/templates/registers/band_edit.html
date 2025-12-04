@@ -1,0 +1,44 @@
+{% extends 'defaults/structure_index.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
+{% endblock %}
+
+{% block title %}
+    Banda - Edição 
+{% endblock %}
+
+{% block body_container %}
+    <div class="row">
+        <div class="col text-center">
+            <h1>Edição de Banda</h1>
+            
+            <br />
+            <a href="/registers" class="btn btn-lg btn-danger">Voltar a Administração de Dados</a>           
+            <a href="/registers/band" class="btn btn-lg btn-danger">Voltar a Listagem de Banda</a> 
+            <br />
+            <br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="/registers/band/refresh" method="POST">
+                            {% csrf_token %}
+                            <td hidden><input type="number" name="id" id="id" value="{{band.id}}" hidden /></td>
+                            <td><input type="text" name="nome" id="nome" value="{{band.nome}}" /></td>
+                            <td colspan="2"><input type="submit" value="Alterar" class="btn btn-primary btn-md"/></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% endblock %}
